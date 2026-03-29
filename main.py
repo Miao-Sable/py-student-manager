@@ -54,78 +54,7 @@ def show_all(students):
         total = s['math'] = s['chinese'] + s['english']
         print(f"{s['id']}\t{s['name']}\t{s['math']}\t{s['chinese']}\t{s['english']}\t{s['total']}")
 
-    # 删除学生（按学号）
-def delete_student(students):
-    stu_id = input("请输入要删除的学号：")
-    for i,s in enumerate(students):
-        if s['id'] == stu_id:
-            students.pop(i)
-            print("删除成功")
-            return
-        print("未找到该学号")
-
-        # 修改学生成绩
-def modify_student(students):
-    stu_id = input("请输入要修改的学号：")
-    for s in students:
-        if s['id'] == stu_id:
-            print(f"当前信息：{s}")
-            try:
-                new_math = input("新数学成绩（直接回车不修改）:")
-                if new_math:
-                    s['math'] = float(new_math)
-                new_chinese = input("新语文成绩：")
-                if new_chinese:
-                    s['chinese'] = float(new_chinese)
-                    new_english = input("新英语成绩：")
-                if new_english:
-                    s['english'] = float(new_english)
-            except ValueError:
-                print("成绩必须是数字，修改失败")
-                return
-            print("修改成功")
-            return
-        print("未找到该学号")
-
-        # 查找学生
-def search_student(students):
-    keyword = input("请输入学号或姓名：")
-    result = []
-    for s in students:
-        if keyword in s['id'] or keyword in s['name']:
-            result.append(s)
-    if not result:
-        print("未找到匹配学生")
-    else:
-        print("\n--- 查找结果 ---")
-        for s in result:
-            total = s['math'] + s['chinese'] + s['english']
-            print(f"{s['id']}{s['name']}数学{s['math']}语文{s['chinese']}英语{s['english']}总分{total}")
-
-         # 主入口
-def main():
-    students = []
-    while True:
-        show_menu()
-        choice = input("请输入选择（0-5）：")
-        if choice == '1':
-            add_student(students)
-        elif choice == '2':
-            show_all(students)
-        elif choice == '3':
-            delete_student(students)
-        elif choice == '4':
-            modify_student(students)
-        elif choice == '5':
-            search_student(students)
-        elif choice == '0':
-            print("感谢使用，再见！")
-            break
-        else:
-            print("无效输入，请重新选择")
-
-if __name__ == "__main__":
-    main()
+   
 
 
 
