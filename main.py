@@ -1,4 +1,5 @@
 from functools import total_ordering
+from selectors import SelectSelector
 
 
 def show_menu():
@@ -100,6 +101,31 @@ def search_student(students):
         for s in result:
             total = s['math'] + s['chinese'] + s['english']
             print(f"{s['id']}{s['name']}数学{s['math']}语文{s['chinese']}英语{s['english']}总分{total}")
+
+         # 主入口
+def main():
+    students = []
+    while True:
+        show_menu()
+        choice = input("请输入选择（0-5）：")
+        if choice == '1':
+            add_student(students)
+        elif choice == '2':
+            show_all(students)
+        elif choice == '3':
+            delete_student(students)
+        elif choice == '4':
+            modify_student(students)
+        elif choice == '5':
+            search_student(students)
+        elif choice == '0':
+            print("感谢使用，再见！")
+            break
+        else:
+            print("无效输入，请重新选择")
+
+if __name__ == "__main__":
+    main()
 
 
 
