@@ -86,7 +86,20 @@ def modify_student(students):
             return
         print("未找到该学号")
 
-
+        # 查找学生
+def search_student(students):
+    keyword = input("请输入学号或姓名：")
+    result = []
+    for s in students:
+        if keyword in s['id'] or keyword in s['name']:
+            result.append(s)
+    if not result:
+        print("未找到匹配学生")
+    else:
+        print("\n--- 查找结果 ---")
+        for s in result:
+            total = s['math'] + s['chinese'] + s['english']
+            print(f"{s['id']}{s['name']}数学{s['math']}语文{s['chinese']}英语{s['english']}总分{total}")
 
 
 
