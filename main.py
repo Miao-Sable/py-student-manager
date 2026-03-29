@@ -53,5 +53,15 @@ def show_all(students):
         total = s['math'] = s['chinese'] + s['english']
         print(f"{s['id']}\t{s['name']}\t{s['math']}\t{s['chinese']}\t{s['english']}\t{s['total']}")
 
+    # 删除学生（按学号）
+def delete_student(students):
+    stu_id = input("请输入要删除的学号")
+    for i,s in enumerate(students):
+        if s['id'] == stu_id:
+            students.pop(i)
+            print("删除成功")
+            return
+        print("未找到该学号")
+
 
 
