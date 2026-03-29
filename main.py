@@ -55,7 +55,3 @@ def show_all(students):
         print(f"{s['id']}\t{s['name']}\t{s['math']}\t{s['chinese']}\t{s['english']}\t{s['total']}")
 
    
-
-
-
-
